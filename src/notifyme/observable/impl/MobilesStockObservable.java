@@ -1,19 +1,32 @@
 package notifyme.observable.impl;
 
-import notifyme.observable.StockObervable;
+import lombok.Data;
+import notifyme.observable.StockObservable;
 import notifyme.observer.StockObserver;
 
 import java.util.List;
 
-public class MobilesStockObservable implements StockObervable {
+@Data
+public class MobilesStockObservable implements StockObservable {
     List<StockObserver> observerList;
 
-    int stockUnits;
+    private int stockUnits;
 
     public MobilesStockObservable(List<StockObserver> observerList, int stockUnits){
         this.observerList = observerList;
         this.stockUnits = stockUnits;
     }
+
+    @Override
+    public void addObserver(StockObserver stockObserver) {
+        this.observerList.add(stockObserver);
+    }
+
+    @Override
+    public void removeObserver(StockObserver stockObserver) {
+        this.observerList.remove(stockObserver);
+    }
+
     @Override
     public void add(int newUnits) {
         if(stockUnits==0){
