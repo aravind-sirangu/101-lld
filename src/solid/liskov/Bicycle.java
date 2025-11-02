@@ -1,4 +1,4 @@
-package liskov;
+package solid.liskov;
 
 public class Bicycle implements Vehicle{
     @Override

@@ -1,6 +1,8 @@
-package liskov;
+package solid.liskov.sub;
 
-public class Car implements Vehicle{
+public class MotorCar implements MotorVehicle {
+
+
     @Override
     public void hasWheels() {
         System.out.println("Car has 4 wheels");
